@@ -40,7 +40,7 @@ class Index
 				$fromUser = $postObj->ToUserName;
 				$time = time();
 				$msgType = 'text';
-				$content = 'welcome to our weichat';
+				$content = '我是許錚博　我爲自己代言';
 				$template = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
 							<FromUserName><![CDATA[%s]]></FromUserName>
