@@ -50,6 +50,7 @@ class Index
 							</xml>";
 				$info = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
 				echo $info;
+				if (file_put_contents("/home/xubd/log/1.log", "info:".$info.'\n'."postarr".$postArr.'\n', FILE_APPEND));
 			}
 		}
 	}
