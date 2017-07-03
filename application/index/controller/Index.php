@@ -16,11 +16,13 @@ class Index
 		$array = array($nonce, $timestamp, $token);
 		sort($array);
 		$str = sha1(implode('', $array));
-		if ($str == $signature && $echostr) {
+
 			if (file_put_contents("/tmp/1.log", $str."is".$signature." \nechostr is".$echostr."\n", FILE_APPEND));
+		
+		if ($str == $signature && $echostr) {
 			echo $echostr;
 			exit;
-		} else if ($str == $signature) {
+		} else {
 			$this->responseMsg();
 		}
 	}
