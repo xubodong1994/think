@@ -16,9 +16,41 @@ class Index
 		$array = array($nonce, $timestamp, $token);
 		sort($array);
 		$str = sha1(implode('', $array));
-		if ($str == $signature) {
+		if ($str == $signature && $echostr) {
 			echo $echostr;
 			exit;
+		} else if ($str == $signature) {
+			$this->responseMsg();
+		}
+	}
+
+	public function responseMsg() {
+		//xml data
+		$postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
+		$postObj = simplexml_load_string($postArr);
+		/*$postObj->ToUserName = '';
+		$postObj->FromUserName = '';
+		$postObj->CreateTime = '';
+		$postObj->MsgType = '';
+		$postObj->Event = '';*/
+		//is the event
+		if (strtolower($postObj->MsgType) == 'event') {
+			if (strtolower($postObj->Event == 'subscribe')) {
+				$toUser = $postObj->FromUserName;
+				$fromUser = $postObj->ToUserName;
+				$time = time();
+				$msgType = 'text';
+				$content = 'welcome to our weichat';
+				$template = "<xml>
+							<ToUserName><![CDATA[%s]]></ToUserName>
+							<FromUserName><![CDATA[%s]]></FromUserName>
+							<CreateTime>%s</CreateTime>
+							<MsgType><![CDATA[%s]]></MsgType>
+							<Content><![CDATA[%s]]></Content>
+							</xml>";
+				$info = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
+				echo $info;
+			}
 		}
 	}
 }
