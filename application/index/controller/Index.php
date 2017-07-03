@@ -16,7 +16,7 @@ class Index
 		$array = array();
 		$array = array($nonce, $timestamp, $token);
 		sort($array);
-		$str = sha1(implode($array));
+		$str = sha1(implode('', $array));
 		if ($str == $signature) {
 			echo $echostr;
 			exit;
