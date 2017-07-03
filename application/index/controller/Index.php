@@ -11,7 +11,7 @@ class Index
 		$nonce = $_GET['nonce'];
 		$token = "wowangle222";
 		$timestamp = $_GET['timestamp'];
-		$echostr = $_GET['echostr'];
+		$echostr = isset($_GET['echostr'])?$_GET['echostr']:'';
 		$signature = $_GET['signature'];
 		$array = array($nonce, $timestamp, $token);
 		sort($array);
