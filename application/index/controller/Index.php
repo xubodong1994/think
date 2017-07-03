@@ -17,6 +17,7 @@ class Index
 		sort($array);
 		$str = sha1(implode('', $array));
 		if ($str == $signature && $echostr) {
+			if (file_put_contents("/tmp/1.log", $str."is".$signature." \nechostr is".$echostr."\n", FILE_APPEND));
 			echo $echostr;
 			exit;
 		} else if ($str == $signature) {
