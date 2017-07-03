@@ -43,7 +43,6 @@ class File
         $destination = $this->config['path'] . date('Ym') . DS . date('d') . '.log';
 
         $path = dirname($destination);
-		echo $path;
         !is_dir($path) && mkdir($path, 0755, true);
 
         //检测日志文件大小，超过配置大小则备份日志文件重新生成
