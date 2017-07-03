@@ -26,7 +26,7 @@ class Index
 
 	public function responseMsg() {
 		//xml data
-		$postArr = $GLOBALS['HTTP_RAW_POST_DATA'];
+		$postArr = file_get_contents('php://input');
 		$postObj = simplexml_load_string($postArr);
 		/*$postObj->ToUserName = '';
 		$postObj->FromUserName = '';
