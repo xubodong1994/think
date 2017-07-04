@@ -50,7 +50,7 @@ class Index
 			if (strtolower($postObj->Event == 'subscribe')) {
 				$toUser = $postObj->FromUserName;
 				$fromUser = $postObj->ToUserName;
-				if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." subscribes ".$fromUser.var_dump(postObj).PHP_EOL, FILE_APPEND));
+				if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." subscribes ".$fromUser.PHP_EOL, FILE_APPEND));
 
 				$time = $timestamp;
 				$msgType = 'text';
@@ -77,7 +77,7 @@ class Index
 			}
 			$toUser = $postObj->FromUserName;
 			$fromUser = $postObj->ToUserName;
-			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.var_dump(postObj).PHP_EOL, FILE_APPEND));
+			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.PHP_EOL, FILE_APPEND));
 
 			$time = $timestamp;
 			$msgType = 'text';
