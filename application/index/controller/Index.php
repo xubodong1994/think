@@ -60,7 +60,56 @@ class Index
 			}
 		}
 
-		if (strtolower($postObj->MsgType) == 'text') {
+		if (strtolower($postObj->MsgType) == 'text' && trim($postObj->Content) == '图文') {
+
+			$arr = array(
+				array(
+					'title'=>'imooc',
+					'description'=>'imooc is very cool',
+					'picUrl'=>'http://www.imooc.com/static/img/common/logo.png',
+					'url'=>'http://www.imooc.com',
+				),
+				array(
+					'title'=>'hao123',
+					'description'=>'hao123 is very cool',
+					'picUrl'=>'https://www.baidu.com/img/bdlogo.png',
+					'url'=>'http://www.hao123.com',
+				),
+				array(
+					'title'=>'qq',
+					'description'=>'qq is very cool',
+					'picUrl'=>'http://www.imooc.com/static/img/common/logo.png',
+					'url'=>'http://www.qq.com',
+				),
+			);
+
+			$template = "<xml>
+					<ToUserName><![CDATA[%s]]></ToUserName>
+					<FromUserName><![CDATA[%s]]></FromUserName>
+					<CreateTime>%s</CreateTime>
+					<MsgType><![CDATA[%s]]></MsgType>
+					<ArticleCount>".count($arr)."</ArticleCount>
+					<Articles>";
+			foreach($arr as $k=>$v) {
+				$template .="<item>
+					<Title><![CDATA[".$v['title']."]]></Title>
+					<Description><![CDATA[".$v['description']."]]</Description>
+					<PicUrl><![CDATA[".$v['picUrl']."]]><PicUrl>
+					<Url><![CDATA[".$v['url']."]]></Url>
+					</item>";
+			}
+
+			$template .= "</Articles>
+				</xml> ";
+			$toUser = $postObj->FromUserName;
+			$fromUser = $postObj->ToUserName;
+			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.' '.$postArr.PHP_EOL, FILE_APPEND));
+
+			$time = $timestamp;
+			$info = sprintf($template, $toUser, $fromUser, $time, 'news');
+			echo $info;
+
+		} else if (strtolower($postObj->MsgType) == 'text') {
 			switch(trim($postObj->Content)) {
 			case 1:
 				$content = "1 is the num";
