@@ -50,7 +50,7 @@ class Index
 			if (strtolower($postObj->Event == 'subscribe')) {
 				$toUser = $postObj->FromUserName;
 				$fromUser = $postObj->ToUserName;
-				if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." subscribes ".$fromUser.PHP_EOL, FILE_APPEND));
+				if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." subscribes ".$fromUser.dump(postObj).PHP_EOL, FILE_APPEND));
 
 				$time = $timestamp;
 				$msgType = 'text';
@@ -67,6 +67,7 @@ class Index
 				break;
 			case 2:
 				$content = "2 is the num";
+				break;
 			case 3:
 				$content = "<a href='http://www.imooc.com'>慕课</a>";
 				break;
@@ -76,12 +77,12 @@ class Index
 			}
 			$toUser = $postObj->FromUserName;
 			$fromUser = $postObj->ToUserName;
-			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.PHP_EOL, FILE_APPEND));
+			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.dump(postObj).PHP_EOL, FILE_APPEND));
 
 			$time = $timestamp;
 			$msgType = 'text';
 			$info = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
 			echo $info;
-		}	
+		}
 	}
 }
