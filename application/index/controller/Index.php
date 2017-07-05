@@ -91,7 +91,8 @@ class Index
 					<ArticleCount>".count($arr)."</ArticleCount>
 					<Articles>";
 			foreach($arr as $k=>$v) {
-				$template .="<item>
+				$template .="
+					<item>
 					<Title><![CDATA[".$v['title']."]]></Title>
 					<Description><![CDATA[".$v['description']."]]></Description>
 					<PicUrl><![CDATA[".$v['picUrl']."]]><PicUrl>
@@ -99,7 +100,8 @@ class Index
 					</item>";
 			}
 
-			$template .= "</Articles>
+			$template .= "
+				</Articles>
 				</xml> ";
 			$toUser = $postObj->FromUserName;
 			$fromUser = $postObj->ToUserName;
