@@ -103,11 +103,11 @@ class Index
 				</xml> ";
 			$toUser = $postObj->FromUserName;
 			$fromUser = $postObj->ToUserName;
-			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.' '.$postArr.PHP_EOL, FILE_APPEND));
 
 			$time = $timestamp;
 			$info = sprintf($template, $toUser, $fromUser, $time, 'news');
 			echo $info;
+			if (file_put_contents("/tmp/1.log", (date('Y-m-d H:i:s', $timestamp))." ".$toUser." send text ".$fromUser.' '.$postArr.PHP_EOL.$info.PHP_EOL, FILE_APPEND));
 
 		} else if (strtolower($postObj->MsgType) == 'text') {
 			switch(trim($postObj->Content)) {
