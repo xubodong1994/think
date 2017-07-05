@@ -63,7 +63,7 @@ class Index
 		if (strtolower($postObj->MsgType) == 'text' && trim($postObj->Content) == '图文') {
 
 			$arr = array(
-				array(
+		/*		array(
 					'title'=>'imooc',
 					'description'=>'imooc is very cool',
 					'picUrl'=>'http://www.imooc.com/static/img/common/logo.png',
@@ -74,7 +74,7 @@ class Index
 					'description'=>'hao123 is very cool',
 					'picUrl'=>'https://www.baidu.com/img/bdlogo.png',
 					'url'=>'http://www.hao123.com',
-				),
+				),*/
 				array(
 					'title'=>'qq',
 					'description'=>'qq is very cool',
