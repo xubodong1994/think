@@ -93,7 +93,7 @@ class Index
 			foreach($arr as $k=>$v) {
 				$template .="<item>
 					<Title><![CDATA[".$v['title']."]]></Title>
-					<Description><![CDATA[".$v['description']."]]</Description>
+					<Description><![CDATA[".$v['description']."]]></Description>
 					<PicUrl><![CDATA[".$v['picUrl']."]]><PicUrl>
 					<Url><![CDATA[".$v['url']."]]></Url>
 					</item>";
