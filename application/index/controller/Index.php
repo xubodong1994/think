@@ -69,7 +69,7 @@ class Index
 					'picUrl'=>'http://www.imooc.com/static/img/common/logo.png',
 					'url'=>'http://www.imooc.com',
 				),
-				array(
+			/*	array(
 					'title'=>'hao123',
 					'description'=>'hao123 is very cool',
 					'picUrl'=>'https://www.baidu.com/img/bdlogo.png',
@@ -80,7 +80,7 @@ class Index
 					'description'=>'qq is very cool',
 					'picUrl'=>'http://www.imooc.com/static/img/common/logo.png',
 					'url'=>'http://www.qq.com',
-				),
+				),*/
 			);
 
 			$template = "<xml>
