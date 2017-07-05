@@ -95,7 +95,7 @@ class Index
 					<item>
 					<Title><![CDATA[".$v['title']."]]></Title>
 					<Description><![CDATA[".$v['description']."]]></Description>
-					<PicUrl><![CDATA[".$v['picUrl']."]]><PicUrl>
+					<PicUrl><![CDATA[".$v['picUrl']."]]></PicUrl>
 					<Url><![CDATA[".$v['url']."]]></Url>
 					</item>";
 			}
